@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gist_item_root"
+    android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/home_card_bg"
+    android:orientation="vertical" android:padding="16dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="top">
+        <TextView android:id="@+id/gist_title" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:textColor="@color/home_text" android:textSize="16sp" android:textStyle="bold" android:maxLines="2" android:ellipsize="end"/>
+        <ImageView android:id="@+id/gist_privacy" android:layout_width="18dp" android:layout_height="18dp" android:layout_marginStart="8dp"
+            android:src="@drawable/ic_private_gist" android:contentDescription="Secret gist"/>
+        <ImageView android:id="@+id/gist_pin" android:layout_width="22dp" android:layout_height="22dp" android:layout_marginStart="8dp"
+            android:padding="2dp" android:src="@drawable/ic_pin" android:contentDescription="Pin note"
+            android:background="?android:attr/selectableItemBackgroundBorderless"/>
+        <ImageView android:id="@+id/gist_archive" android:layout_width="22dp" android:layout_height="22dp" android:layout_marginStart="6dp"
+            android:padding="2dp" android:src="@drawable/ic_archive" android:contentDescription="Archive local note"
+            android:background="?android:attr/selectableItemBackgroundBorderless"/>
+        <ImageView android:id="@+id/gist_select_checkbox" android:layout_width="22dp" android:layout_height="22dp" android:layout_marginStart="8dp"
+            android:src="@drawable/ic_check_circle_unselected" android:contentDescription="Select note"
+            android:visibility="gone"/>
+    </LinearLayout>
+    <TextView android:id="@+id/gist_preview" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:minLines="3" android:layout_marginTop="10dp" android:layout_marginBottom="14dp"
+        android:textColor="@color/home_text" android:textSize="14sp" android:lineSpacingExtra="3dp" android:fontFamily="monospace"
+        android:maxLines="7" android:ellipsize="end"/>
+    <TextView android:id="@+id/gist_date" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:textColor="@color/home_muted" android:textSize="10sp" android:maxLines="1" android:ellipsize="end"/>
+</LinearLayout>

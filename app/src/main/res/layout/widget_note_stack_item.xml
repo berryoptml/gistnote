@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/widget_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="Widget background"
+        android:scaleType="fitXY" />
+
+    <!-- Hidden compatibility views to avoid RemoteViews ActionExceptions -->
+    <LinearLayout
+        android:id="@+id/widget_title_bar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/widget_title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="10dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="5dp">
+
+        <!-- Content Area: Starts right from top, covering maximum widget area -->
+        <TextView
+            android:id="@+id/widget_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:includeFontPadding="false"
+            android:lineSpacingMultiplier="1.15"
+            android:text="Note content"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+        <!-- Compact Bottom Bar (vertically centered) -->
+        <LinearLayout
+            android:id="@+id/widget_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/widget_nav_container"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/widget_indicators_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="Stack note indicators" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <!-- WhatsApp overlapping tick icon + formatted date/time -->
+            <ImageView
+                android:id="@+id/widget_tick_icon"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginEnd="3dp"
+                android:layout_gravity="center_vertical"
+                android:scaleType="fitCenter"
+                android:contentDescription="Sync tick"
+                android:src="@drawable/ic_tick_double" />
+
+            <TextView
+                android:id="@+id/widget_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:layout_marginEnd="6dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="19/09 12:45"
+                android:textColor="#B3FFFFFF"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/widget_page_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:text="1/2"
+                android:textColor="#B3FFFFFF"
+                android:textSize="11sp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Touch Layer matching mockup:
+         Left Section (35%): Yellow region for toggling checkboxes
+         Bottom Left: [ Prev Note ] [ Next Note ]
+         Center Section (45%): Open Preview
+         Right Section (20%): Top = Scroll Up, Bottom = Scroll Down -->
+    <LinearLayout
+        android:id="@+id/widget_touch_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!-- Left Section (35%) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="35"
+            android:orientation="vertical">
+
+            <!-- Yellow area: Toggle checkboxes / act on them -->
+            <FrameLayout
+                android:id="@+id/widget_click_left"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Bottom Left: Prev Note & Next Note -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:id="@+id/widget_click_prev_note"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <FrameLayout
+                    android:id="@+id/widget_click_next_note"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Center Section (24% width x 20% height box in exact center): Open Preview -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="24"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="40" />
+
+            <FrameLayout
+                android:id="@+id/widget_click_center"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="40" />
+        </LinearLayout>
+
+        <!-- Right Section (20%): Top = Scroll Up, Bottom = Scroll Down -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/widget_click_top_right"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <FrameLayout
+                android:id="@+id/widget_click_bottom_right"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Settings Button floating at top-right corner (placed AFTER touch layer so it sits on top in Z-order) -->
+    <ImageView
+        android:id="@+id/widget_settings_button"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="6dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Widget appearance settings"
+        android:padding="3dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_settings_home" />
+</FrameLayout>

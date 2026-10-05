@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_config_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/paper"
+    android:padding="22dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose a note"
+        android:textColor="@color/ink"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/widget_config_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Select one gist for this widget."
+        android:textColor="@color/muted" />
+    <ListView
+        android:id="@+id/widget_gist_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="14dp"
+        android:layout_weight="1"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="7dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Appearance"
+        android:textColor="@color/ink"
+        android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical"><TextView style="@style/GistNote.Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CARD" /><Spinner android:id="@+id/widget_color" android:layout_width="match_parent" android:layout_height="48dp" /></LinearLayout>
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="6dp" android:orientation="vertical"><TextView style="@style/GistNote.Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TEXT" /><Spinner android:id="@+id/widget_text_color" android:layout_width="match_parent" android:layout_height="48dp" /></LinearLayout>
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="6dp" android:orientation="vertical"><TextView style="@style/GistNote.Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SIZE" /><Spinner android:id="@+id/widget_text_size" android:layout_width="match_parent" android:layout_height="48dp" /></LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/add_widget_button"
+        style="@style/GistNote.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add widget" />
+</LinearLayout>

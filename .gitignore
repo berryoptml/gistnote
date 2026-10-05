@@ -1,0 +1,20 @@
+# Local Android and Gradle state
+.gradle/
+.gradle-user-home/
+build/
+app/build/
+macos-app/.build/
+local.properties
+
+# IDE and operating-system files
+.idea/
+*.iml
+.DS_Store
+
+# Local device-review captures and temporary artifacts
+remote_artifacts/
+
+# Signing material
+*.jks
+*.keystore
+key.properties

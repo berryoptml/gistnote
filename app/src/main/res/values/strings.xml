@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">GistNote</string>
+    <string name="widget_description">A note synced with a GitHub gist</string>
+    <string name="stack_widget_description">A flickable stack of GitHub gist notes</string>
+    <string name="empty_note">Tap to write a note…</string>
+    <string name="secret_gist_warning">GitHub calls unlisted gists “secret,” but anyone with the URL can read them. Do not store passwords or sensitive information.</string>
+    <string name="create_github_token">Create gist-only GitHub token</string>
+    <string name="github_token_link_failed">No browser is available to open GitHub.</string>
+    <string name="public_widget_title">Public gist</string>
+    <string name="public_widget_warning">This gist is public. Its note text will also be visible on your home screen. Add the widget anyway?</string>
+    <string name="add_public_widget">Add anyway</string>
+</resources>

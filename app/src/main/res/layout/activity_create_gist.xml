@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/create_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/paper"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New note"
+            android:textColor="@color/ink"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+        <TextView style="@style/GistNote.Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="TITLE" />
+        <EditText
+            android:id="@+id/description_input"
+            style="@style/GistNote.Field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:hint="Note title"
+            android:importantForAutofill="no"
+            android:inputType="textCapSentences"
+            android:maxLines="1" />
+        <TextView style="@style/GistNote.Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="FILENAME" />
+        <EditText
+            android:id="@+id/filename_input"
+            style="@style/GistNote.Field"
+            android:layout_marginTop="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Filename"
+            android:importantForAutofill="no"
+            android:inputType="textNoSuggestions"
+            android:maxLines="1"
+            android:text="note.md" />
+        <TextView style="@style/GistNote.Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="CONTENT" />
+        <LinearLayout
+            android:layout_marginTop="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:background="@drawable/editor_field_bg"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingEnd="6dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="MARKDOWN"
+                    android:textColor="@color/muted"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/create_add_task_button"
+                    style="@style/GistNote.ToolbarIconButton"
+                    android:contentDescription="Add checkbox"
+                    android:src="@drawable/ic_task_add"
+                    android:tooltipText="Add checkbox" />
+
+                <ImageButton
+                    android:id="@+id/create_indent_button"
+                    style="@style/GistNote.ToolbarIconButton"
+                    android:contentDescription="Indent line"
+                    android:src="@drawable/ic_indent"
+                    android:tooltipText="Indent line" />
+
+                <ImageButton
+                    android:id="@+id/create_outdent_button"
+                    style="@style/GistNote.ToolbarIconButton"
+                    android:contentDescription="Outdent line"
+                    android:src="@drawable/ic_outdent"
+                    android:tooltipText="Outdent line" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider" />
+
+            <EditText
+                android:id="@+id/content_input"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="top|start"
+                android:hint="Write something…\n\n- [ ] A task\n  - [ ] A nested task"
+                android:importantForAutofill="no"
+                android:inputType="textCapSentences|textMultiLine"
+                android:padding="12dp"
+                android:textColor="@color/ink"
+                android:textColorHint="@color/muted" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/create_local_button"
+                style="@style/GistNote.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:text="Save on device"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/create_gist_button"
+                style="@style/GistNote.SecondaryButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:text="Create gist"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/cancel_button"
+                style="@style/GistNote.SecondaryButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="0.72"
+                android:maxLines="1"
+                android:text="Cancel"
+                android:textSize="12sp" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/create_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/muted" />
+    </LinearLayout>
+</ScrollView>

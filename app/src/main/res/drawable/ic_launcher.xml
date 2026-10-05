@@ -1,0 +1,33 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Squircle base -->
+    <path
+        android:fillColor="#F3EDE4"
+        android:pathData="M24,4 h60 a20,20 0,0 1,20 20 v60 a20,20 0,0 1,-20 20 H24 A20,20 0,0 1,4 84 V24 A20,20 0,0 1,24 4 z"/>
+    <group
+        android:scaleX="0.75"
+        android:scaleY="0.75"
+        android:translateX="13.5"
+        android:translateY="13.5">
+        <!-- Bookmark ribbon -->
+        <path
+            android:fillColor="#E040FB"
+            android:pathData="M24,14 h14 v26 l-7,-5 l-7,5 z" />
+        <!-- Memo sheet with bottom-right fold -->
+        <path
+            android:fillColor="#FAF7F2"
+            android:fillType="evenOdd"
+            android:pathData="M24,20 h60 c4.4,0 8,3.6 8,8 v44 l-16,16 H24 c-4.4,0 -8,-3.6 -8,-8 V28 c0,-4.4 3.6,-8 8,-8 z" />
+        <!-- Turned up corner flap -->
+        <path
+            android:fillColor="#E6DDD2"
+            android:pathData="M76,72 h16 l-16,16 z" />
+        <!-- Octocat emboss face outline -->
+        <path
+            android:fillColor="#E2DACF"
+            android:pathData="M44,52 c0,-8 4,-12 10,-12 c6,0 10,4 10,12 c0,6 -4,10 -10,10 c-6,0 -10,-4 -10,-10 z" />
+    </group>
+</vector>

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/note_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:id="@+id/note_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <!-- Top Header / App Bar -->
+        <LinearLayout
+            android:id="@+id/note_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="12dp"
+            android:paddingTop="8dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="6dp">
+
+            <View
+                android:id="@+id/modal_drag_handle"
+                android:layout_width="36dp"
+                android:layout_height="4dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/handle_bar"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/header_back_button"
+                    style="@style/GistNote.ToolbarIconButton"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="Back"
+                    android:tooltipText="Back"
+                    android:src="@drawable/ic_arrow_back"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/note_header_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Note"
+                        android:textColor="@color/ink"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/note_header_subtitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Reading"
+                        android:textColor="@color/muted"
+                        android:textSize="11.5sp" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/header_done_button"
+                    style="@style/GistNote.ToolbarIconButton"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:padding="6dp"
+                    android:layout_marginEnd="4dp"
+                    android:contentDescription="Done"
+                    android:tooltipText="Done"
+                    android:src="@drawable/ic_commit"
+                    android:visibility="gone" />
+
+                <ImageButton
+                    android:id="@+id/header_close_button"
+                    style="@style/GistNote.ToolbarIconButton"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:padding="6dp"
+                    android:contentDescription="Close"
+                    android:tooltipText="Close"
+                    android:src="@drawable/ic_close" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Hairline Divider between Header and Content -->
+        <View
+            android:id="@+id/header_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider" />
+
+        <!-- Content Canvas -->
+        <FrameLayout
+            android:id="@+id/note_workspace"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/note_transparent">
+
+            <ScrollView
+                android:id="@+id/read_panel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+                <TextView
+                    android:id="@+id/read_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:lineSpacingMultiplier="1.25"
+                    android:lineSpacingExtra="4dp"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="14dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="24dp"
+                    android:textColor="@color/ink"
+                    android:textSize="16sp" />
+            </ScrollView>
+
+            <LinearLayout
+                android:id="@+id/edit_panel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <EditText
+                    android:id="@+id/note_editor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="top|start"
+                    android:hint="Write your note"
+                    android:importantForAutofill="no"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:lineSpacingMultiplier="1.25"
+                    android:lineSpacingExtra="4dp"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="14dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="24dp"
+                    android:textColor="@color/ink"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Hairline Divider above Toolbar -->
+        <View
+            android:id="@+id/toolbar_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider" />
+
+        <!-- Bottom Toolbar (Flat, no elevation or shadow) -->
+        <LinearLayout
+            android:id="@+id/note_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:elevation="0dp"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="6dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/sync_tick_icon"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_marginEnd="4dp"
+                    android:src="@drawable/ic_tick_double"
+                    android:tint="@color/muted"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/sync_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:paddingEnd="6dp"
+                    android:text="Opening cached note…"
+                    android:textColor="@color/muted"
+                    android:textSize="11.5sp" />
+
+                <!-- Action row for Edit Mode -->
+                <LinearLayout
+                    android:id="@+id/edit_action_row"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageButton
+                        android:id="@+id/add_task_button"
+                        style="@style/GistNote.ToolbarIconButton"
+                        android:layout_marginEnd="4dp"
+                        android:contentDescription="Add task"
+                        android:tooltipText="Add task checkbox"
+                        android:src="@drawable/ic_task_add" />
+
+                    <ImageButton
+                        android:id="@+id/indent_button"
+                        style="@style/GistNote.ToolbarIconButton"
+                        android:layout_marginEnd="4dp"
+                        android:contentDescription="Indent"
+                        android:tooltipText="Indent task"
+                        android:src="@drawable/ic_indent" />
+
+                    <ImageButton
+                        android:id="@+id/outdent_button"
+                        style="@style/GistNote.ToolbarIconButton"
+                        android:layout_marginEnd="4dp"
+                        android:contentDescription="Outdent"
+                        android:tooltipText="Outdent task"
+                        android:src="@drawable/ic_outdent" />
+
+                    <ImageButton
+                        android:id="@+id/save_note_button"
+                        style="@style/GistNote.ToolbarIconButton"
+                        android:layout_marginEnd="4dp"
+                        android:contentDescription="Commit"
+                        android:tooltipText="Commit changes"
+                        android:src="@drawable/ic_commit" />
+
+                    <ImageButton
+                        android:id="@+id/close_button"
+                        style="@style/GistNote.ToolbarIconButton"
+                        android:contentDescription="Cancel editing"
+                        android:tooltipText="Cancel editing"
+                        android:src="@drawable/ic_close" />
+                </LinearLayout>
+
+                <!-- Action row for Reading Mode -->
+                <LinearLayout
+                    android:id="@+id/read_action_row"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/read_refresh_button"
+                        style="@style/GistNote.ToolbarIconButton"
+                        android:layout_marginEnd="4dp"
+                        android:contentDescription="Sync with GitHub"
+                        android:tooltipText="Sync with GitHub"
+                        android:src="@drawable/ic_sync_explicit" />
+
+                    <ImageButton
+                        android:id="@+id/read_edit_button"
+                        style="@style/GistNote.ToolbarIconButton"
+                        android:layout_marginEnd="4dp"
+                        android:contentDescription="Edit note"
+                        android:tooltipText="Edit note"
+                        android:src="@drawable/ic_edit_note" />
+
+                    <ImageButton
+                        android:id="@+id/read_commit_button"
+                        style="@style/GistNote.ToolbarIconButton"
+                        android:layout_marginEnd="4dp"
+                        android:contentDescription="Commit task changes"
+                        android:tooltipText="Commit task changes"
+                        android:src="@drawable/ic_commit" />
+
+                    <ImageButton
+                        android:id="@+id/read_cancel_button"
+                        style="@style/GistNote.ToolbarIconButton"
+                        android:contentDescription="Close note"
+                        android:tooltipText="Close note"
+                        android:src="@drawable/ic_close" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

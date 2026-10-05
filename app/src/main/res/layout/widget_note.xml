@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/widget_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="Widget background"
+        android:scaleType="fitXY" />
+
+    <!-- Retained as hidden compatibility targets for partial RemoteViews updates. -->
+    <LinearLayout
+        android:id="@+id/widget_title_bar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/widget_title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/widget_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/widget_status"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/widget_page_indicator"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="6dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp">
+
+        <!-- Prose is grouped into wrapped blocks; task rows own their click. -->
+        <ListView
+            android:id="@+id/widget_content_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:divider="@null"
+            android:scrollbars="none" />
+
+        <LinearLayout
+            android:id="@+id/widget_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- The indicator is the navigator: tap its left/right half. -->
+            <FrameLayout
+                android:id="@+id/widget_nav_container"
+                android:layout_width="112dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/widget_indicators_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="Stack note indicators"
+                    android:scaleType="fitCenter" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:id="@+id/widget_indicator_prev"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="Previous note" />
+
+                    <FrameLayout
+                        android:id="@+id/widget_indicator_next"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="Next note" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/widget_tick_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="2dp"
+                android:contentDescription="Sync now"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_tick_double" />
+
+            <ImageView
+                android:id="@+id/widget_preview_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="Open preview"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_preview_widget" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/widget_settings_button"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="6dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Widget appearance settings"
+        android:padding="3dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_settings_home" />
+</FrameLayout>

@@ -1,0 +1,22 @@
+<resources>
+    <color name="on_brand">#FFFFFF</color>
+    <color name="ink">#2C2622</color>
+    <color name="paper">#FBF9F6</color>
+    <color name="brand">#6B584E</color>
+    <color name="brand_dark">#443A34</color>
+    <color name="muted">#7E756E</color>
+    <color name="divider">#12000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="launcher_background">#FFE0C5</color>
+    <color name="surface">#FBF9F6</color>
+    <color name="surface_alt">#F4F1ED</color>
+    <color name="surface_input">#FFFFFF</color>
+    <color name="surface_stroke">#DDD7D0</color>
+    <color name="on_surface">#2C2622</color>
+    <color name="on_surface_muted">#7E756E</color>
+    <color name="toolbar_surface">#FBF9F6</color>
+    <color name="toolbar_text">#564E48</color>
+    <color name="focus_accent">#607270</color>
+    <color name="overlay_bar">#66000000</color>
+    <color name="overlay_nav">#000000</color>
+</resources>
